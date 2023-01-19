@@ -1,11 +1,23 @@
 <template>
   <div id="app">
+    <Toolbar></Toolbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import Toolbar from "./components/Toolbar.vue";
+
+export default {
+  components: {
+    Toolbar,
+  },
+};
 </script>
 
-<style></style>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+</style>
