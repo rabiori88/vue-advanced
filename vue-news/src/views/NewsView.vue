@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p v-for="item in this.$store.state.news">
+    <p v-for="item in newsInfo">
       <a v-bind:href="item.url">
         {{ item.title }}
       </a>
@@ -17,6 +17,11 @@
 
 <script>
 export default {
+  computed: {
+    newsInfo() {
+      return this.$store.state.news;
+    },
+  },
   created() {
     this.$store.dispatch("FETCH_NEWS");
   },

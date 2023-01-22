@@ -4,7 +4,13 @@
       <a :href="item.url">
         {{ item.title }}
       </a>
-      <small>{{ item.time_age }} by {{ item.user }}</small>
+
+      <small>
+        {{ item.time_age }} by
+        <router-link v-bind:to="`/item/${item.id}`">
+          {{ item.id }}
+        </router-link>
+      </small>
     </P>
   </div>
 </template>
