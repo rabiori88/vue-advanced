@@ -1,17 +1,28 @@
 <template>
   <div>
-    <P v-for="item in fetchedAsk">
-      <a :href="item.url">
-        {{ item.title }}
-      </a>
+    <ul class="news-list">
+      <li v-for="item in this.$store.state.ask" class="post">
+        <div class="points">
+          {{ item.points }}
+        </div>
+        <!-- 기타정보 영역 -->
+        <div>
+          <p class="news-title">
+            <a v-bind:href="item.url">
+              {{ item.title }}
+            </a>
+          </p>
+          <small class="link-text">
+            {{ item.time_ago }}
+            by
 
-      <small>
-        {{ item.time_age }} by
-        <router-link v-bind:to="`/item/${item.id}`">
-          {{ item.id }}
-        </router-link>
-      </small>
-    </P>
+            <router-link class="link-text" v-bind:to="`/user/${item.user}`">
+              {{ item.user }}
+            </router-link>
+          </small>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -38,4 +49,30 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.news-list {
+  margin: 0px;
+  padding: 0px;
+}
+
+.post {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.points {
+  width: 80px;
+  height: 60px;
+  color: #42b883;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-text {
+  color: #828282;
+}
+.news-title {
+  margin: 0;
+}
+</style>
