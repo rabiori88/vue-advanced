@@ -42,18 +42,6 @@
 
 <script>
 export default {
-  created() {
-    // console.log(this.$route.name === "/news");
-    const name = this.$route.name;
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASK");
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
-    // this.$store.dispatch("FETCH_NEWS");
-  },
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
     listItems() {
