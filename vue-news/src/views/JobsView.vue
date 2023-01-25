@@ -1,10 +1,18 @@
-import bus from "../utils/bus";
+<template>
+  <div>
+    <list-item></list-item>
+  </div>
+</template>
+
+<script>
+import ListItem from "../components/ListItem.vue";
+import ListMixin from "../mixins/ListMixin";
 
 export default {
-  mounted() {
-    bus.$emit("end:spinner");
+  components: {
+    ListItem,
   },
-  //재사용할 컴포넌트 옵션 & 로직
+  mixins: [ListMixin],
   // created() {
   //   bus.$emit("start:spinner");
   //   this.$store
@@ -16,7 +24,8 @@ export default {
   //     .catch((error) => {
   //       console.log(error);
   //     });
-  // setTimeout(() => {
-  // }, 0);
   // },
 };
+</script>
+
+<style></style>
